@@ -99,6 +99,23 @@ int main() {
     a.print();
     std::cout << "------------------------------------------------------------" << std::endl;
 
+    Graph G1;
+    for (int i = 1; i < 7; ++i) {
+        G1.addNode(i);
+    }
+
+    G1.addArc(1, 4, 4);
+    G1.addArc(1, 6, 1);
+    G1.addArc(4, 6, 4);
+    G1.addArc(4, 2, 5);
+    G1.addArc(2, 5, 5);
+    G1.addArc(2, 3, 6);
+    G1.addArc(3, 5, 7);
+    G1.addArc(3, 6, 2);
+    G1.addArc(5, 6, 4);
+    G1.DIJKSTRA(4);
+    G1.print();
+
 /*    Graph g1 = g;
 
     std::cout << "После коппирования(без изменений графов)" << '\n' << "Коппируемый граф:" << std::endl;

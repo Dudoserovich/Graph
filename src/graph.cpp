@@ -8,7 +8,7 @@ Graph::Graph() {
 // Конструктор с одной вершиной
 Graph::Graph(int a) {
     root = nullptr;
-    addNode(1);
+    addNode(a);
     //root = new node();
     //root->value = 1;
 }
@@ -121,6 +121,7 @@ int Graph::addNode(int a) {
             root->nextNode = cur;
             return true;
         } else if (cur->value == a) {
+            std::cout << "Такая вершина уже есть!" << std::endl;
             return false;
         }
 
@@ -404,7 +405,7 @@ void Graph::print() {
 bool Graph::roundWidth(int a) {
     // коппируем граф, чтобы от греха подальше ничего не ломать
     Graph g = *this;
-    g.print();
+    //g.print();
 
     // ищем начальную вершину
     node *nodeA = g.root;
@@ -500,7 +501,7 @@ void Graph::ISS (node *s) {
 }
 
 void Graph::chill (node *u, arc *a) {
-    if (a->node_->d >= u->d + a->weight) {
+    if (a->node_->d > u->d + a->weight) {
         a->node_->d = u->d + a->weight;
         a->node_->p = u;
     }
